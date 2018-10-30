@@ -1,6 +1,7 @@
 package entities;
 
-public class Produto {
+//Para usar o comparable devemos extender de Comparable
+public class Produto implements Comparable <Produto>{
 	
 	private String nome;
 	private Double preco;
@@ -29,6 +30,12 @@ public class Produto {
 	@Override
 	public String toString() {
 		return "\nProduto: " + nome + "- Preço R$: " + String.format("%.2f", preco);
+	}
+
+	//Método implementado que sobrescreve o padrão dizem a base no que compara
+	@Override
+	public int compareTo(Produto outro) {
+		return preco.compareTo(outro.getPreco());
 	}
 
 

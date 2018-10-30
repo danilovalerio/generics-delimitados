@@ -25,11 +25,11 @@ public class Programa {
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String linha = br.readLine();
-			String [] colunas;
+			String [] campos;
 					
 			while(linha != null) {
-				colunas = linha.split(",");				
-				lista.add(new Produto(colunas[0], Double.parseDouble(colunas[1])));
+				campos = linha.split(",");				
+				lista.add(new Produto(campos[0], Double.parseDouble(campos[1])));
 				linha = br.readLine();
 			}
 			
