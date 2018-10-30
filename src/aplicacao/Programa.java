@@ -21,30 +21,19 @@ public class Programa {
 		 */ 
 		List<Produto> lista = new ArrayList<>();
 		
-		//String path = "C:\\Users\\dsilva\\Documents\\entrada.txt";
 		String path = "C:\\Users\\dsilva\\Documents\\in-produtos.txt";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String linha = br.readLine();
 			String [] colunas;
-			String nome;
-			Double valor;
-			
+					
 			while(linha != null) {
-				colunas = linha.split(",");
-				//System.out.print("Coluna 0: "+ colunas[0]);
-				nome = colunas[0];
-				//System.out.println(" Coluna 1: "+ colunas[1]);
-				valor = Double.parseDouble(colunas[1]);
-				
-				lista.add(new Produto(nome, valor));
-				
-				//lista.add(new Produto(String nome, valor));
+				colunas = linha.split(",");				
+				lista.add(new Produto(colunas[0], Double.parseDouble(colunas[1])));
 				linha = br.readLine();
 			}
 			
 			System.out.print(lista.toString());
-			
 			
 			Produto x = CalculoService.max(lista);
 			System.out.println("\n\nProduto mais valioso: ");
