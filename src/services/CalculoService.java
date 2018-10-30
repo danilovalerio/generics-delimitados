@@ -3,15 +3,22 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Produto;
+
 public class CalculoService<T> {
 	
-	public static Integer max(List<Integer> list) {
-		if(list.isEmpty()) {
+	public static Produto max(List<Produto> lista) {
+		if(lista.isEmpty()) {
 			throw new IllegalStateException("A lista está vazia.");
 		}
-		Integer max = list.get(0);
-		for(Integer item : list) {
-			if(item.compareTo(max) > 0) {
+		
+		Produto max = lista.get(0);
+		Double maxPreco = 0.0;
+		
+		for(Produto item : lista) {
+			Double valor = item.getPreco();
+			if(item.getPreco() > maxPreco) {
+				maxPreco = item.getPreco();
 				max = item;
 			}
 		}
